@@ -20,6 +20,7 @@ type Program struct {
 	Statements []Statement
 }
 
+// Returns head token literal
 func (p *Program) TokenLiteral() string {
 	if len(p.Statements) > 0 {
 		return p.Statements[0].TokenLiteral()
@@ -33,14 +34,14 @@ type LetStatment struct {
 	Value Expression
 }
 
-func (ls *LetStatment) statementNode() {}
+func (ls *LetStatment) statementNode()       {}
 func (ls *LetStatment) TokenLiteral() string { return ls.Token.Literal }
+
 
 type Indentifier struct {
 	Token token.Token // the token.IDENT token
-  Value string
+	Value string
 }
 
-func (i *Indentifier) expressionNode() {} 
-
+func (i *Indentifier) expressionNode()      {}
 func (i *Indentifier) TokenLiteral() string { return i.Token.Literal }
